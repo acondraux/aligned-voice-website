@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — Aligned Voice</title>
+<meta name="description" content="Inbound call handling, automatic booking, SMS follow-up, email nurturing, and practice analytics — everything your wellness practice needs to stop missing clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --stone:#f5f2ee; --forest:#1d332c; --brown:#735240; --yellow:#d8d355; --red:#730805; --charcoal:#3c4240; --body:#5c5c52; --stone-mid:#e4dfd6; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--forest); background:white; line-height:1.6; }
+
+  nav { position:sticky; top:0; z-index:100; background:white; border-bottom:1px solid var(--stone-mid); padding:0 48px; height:72px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo img { height:38px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { font-size:14px; color:var(--body); text-decoration:none; }
+  .nav-links a:hover, .nav-links a.active { color:var(--forest); font-weight:500; }
+  .nav-cta { display:flex; align-items:center; gap:12px; }
+  .btn-ghost { font-size:14px; color:var(--body); text-decoration:none; padding:8px 16px; }
+  .btn-nav { font-size:14px; font-weight:600; background:var(--red); color:white; text-decoration:none; padding:10px 22px; border-radius:8px; }
+
+  .page-hero { background:var(--stone); padding:72px 48px 64px; text-align:center; border-bottom:1px solid var(--stone-mid); }
+  .page-hero .label { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--brown); font-weight:600; margin-bottom:16px; }
+  .page-hero h1 { font-family:'Bitter',Georgia,serif; font-size:48px; font-weight:400; color:var(--forest); margin-bottom:16px; letter-spacing:-.02em; line-height:1.15; }
+  .page-hero p { font-size:18px; color:var(--body); max-width:560px; margin:0 auto; line-height:1.7; }
+
+  .feature-section { padding:80px 48px; }
+  .feature-section:nth-child(odd) { background:white; }
+  .feature-section:nth-child(even) { background:var(--stone); }
+
+  .feature-block { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .feature-block.reverse { direction:rtl; }
+  .feature-block.reverse > * { direction:ltr; }
+
+  .feature-tag { font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--brown); margin-bottom:16px; }
+  .feature-block h2 { font-family:'Bitter',Georgia,serif; font-size:34px; font-weight:400; color:var(--forest); margin-bottom:16px; line-height:1.2; letter-spacing:-.01em; }
+  .feature-block > div > p { font-size:16px; color:var(--body); line-height:1.75; margin-bottom:28px; }
+  .feature-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .feature-list li { font-size:14px; color:var(--body); display:flex; align-items:flex-start; gap:10px; line-height:1.6; }
+  .feature-list li::before { content:'✓'; color:var(--forest); font-weight:700; flex-shrink:0; margin-top:2px; }
+
+  .feature-visual { background:var(--forest); border-radius:20px; padding:40px; min-height:280px; display:flex; align-items:center; justify-content:center; }
+  .feature-visual.light { background:var(--stone-mid); }
+  .visual-icon { font-size:72px; }
+
+  .feature-stat { background:var(--charcoal); border-radius:20px; padding:40px; text-align:center; }
+  .feature-stat .big-num { font-family:'Bitter',Georgia,serif; font-size:64px; font-weight:400; color:var(--yellow); line-height:1; margin-bottom:8px; }
+  .feature-stat p { font-size:14px; color:rgba(255,255,255,.55); line-height:1.6; }
+
+  .cta-section { background:var(--forest); padding:80px 48px; text-align:center; }
+  .cta-section h2 { font-family:'Bitter',Georgia,serif; font-size:40px; font-weight:400; color:white; margin-bottom:16px; }
+  .cta-section p { font-size:17px; color:rgba(255,255,255,.55); max-width:460px; margin:0 auto 36px; line-height:1.7; }
+  .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn-cta-primary { font-size:15px; font-weight:600; background:var(--red); color:white; text-decoration:none; padding:14px 32px; border-radius:10px; }
+  .btn-cta-secondary { font-size:15px; color:rgba(255,255,255,.75); text-decoration:none; padding:14px 32px; border-radius:10px; border:1.5px solid rgba(255,255,255,.22); }
+
+  footer { background:var(--charcoal); padding:56px 48px 36px; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+  .footer-brand p { font-size:14px; color:rgba(255,255,255,.4); line-height:1.7; margin-top:16px; max-width:280px; }
+  .footer-brand img { height:30px; }
+  .footer-col h5 { font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:20px; }
+  .footer-col ul { list-style:none; }
+  .footer-col li { margin-bottom:12px; }
+  .footer-col a { font-size:14px; color:rgba(255,255,255,.5); text-decoration:none; }
+  .footer-col a:hover { color:white; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; }
+  .footer-bottom p { font-size:13px; color:rgba(255,255,255,.25); }
+  .footer-bottom a { color:rgba(255,255,255,.3); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="Aligned_Voice_Logo.png" alt="Aligned Voice"></a>
+  <ul class="nav-links">
+    <li><a href="features.html" class="active">Features</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Sign in</a>
+    <a href="contact.html" class="btn-nav">Book a Demo</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Features</div>
+  <h1>Everything your front desk<br>can't always be.</h1>
+  <p>Aligned Voice handles the communication work that falls through the cracks — after hours, during sessions, and in every gap between your team's availability and your clients' timing.</p>
+</div>
+
+<section class="feature-section">
+  <div class="feature-block">
+    <div>
+      <div class="feature-tag">Call Handling</div>
+      <h2>Every call answered. Every time.</h2>
+      <p>The most common reason wellness practices lose new clients is simple: no one picked up. Aligned Voice answers every inbound call — during your busiest hours, late at night, and on weekends — with a warm, natural conversation that sounds like your practice, not a call center.</p>
+      <ul class="feature-list">
+        <li>24/7 availability, no exceptions</li>
+        <li>Trained on your services, pricing, and FAQs</li>
+        <li>Natural conversation — not a phone tree</li>
+        <li>Appointment confirmations and reminders</li>
+        <li>Call recordings and transcripts for every interaction</li>
+        <li>Seamless handoff to your team when needed</li>
+      </ul>
+    </div>
+    <div class="feature-stat">
+      <div class="big-num">67%</div>
+      <p>of callers won't leave a voicemail — they'll call your competitor instead</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="feature-block reverse">
+    <div>
+      <div class="feature-tag">Automatic Booking</div>
+      <h2>From conversation to confirmed appointment.</h2>
+      <p>Aligned Voice doesn't just collect information — it closes the loop. When a client is ready to schedule, it checks your live calendar and books directly into your practice management system. No follow-up email, no phone tag, no gaps.</p>
+      <ul class="feature-list">
+        <li>Live calendar integration — real availability, always</li>
+        <li>Books directly into PracticeQ, Jane App, SimplePractice, and more</li>
+        <li>Collects intake information at the time of booking</li>
+        <li>Handles cancellations and rescheduling automatically</li>
+        <li>Waitlist management for high-demand appointment types</li>
+        <li>Confirmation texts and email reminders sent automatically</li>
+      </ul>
+    </div>
+    <div class="feature-stat">
+      <div class="big-num">64%</div>
+      <p>appointment booking rate when clients can schedule in the same conversation</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="feature-block">
+    <div>
+      <div class="feature-tag">SMS & Text</div>
+      <h2>Meet clients where they actually are.</h2>
+      <p>Most people would rather text than call. Aligned Voice sends an instant text response to every missed call and handles full scheduling conversations via SMS — so clients who prefer texting can book without ever speaking to anyone.</p>
+      <ul class="feature-list">
+        <li>Instant missed-call-to-text response</li>
+        <li>Full scheduling via SMS conversation</li>
+        <li>Automated follow-up sequences after first contact</li>
+        <li>Customized to your practice tone and voice</li>
+        <li>Two-way conversation — clients can reply naturally</li>
+        <li>HIPAA-compliant messaging throughout</li>
+      </ul>
+    </div>
+    <div class="feature-stat">
+      <div class="big-num">98%</div>
+      <p>of text messages are read within 3 minutes of being received</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="feature-block reverse">
+    <div>
+      <div class="feature-tag">Outbound Follow-Up</div>
+      <h2>Inquiries that don't convert aren't lost — they're waiting.</h2>
+      <p>Most practices give up on an inquiry after one or two attempts. Aligned Voice runs coordinated follow-up across voice, text, and email — at the right intervals, in the right order — until the client responds or books. This is where most of the revenue recovery happens.</p>
+      <ul class="feature-list">
+        <li>Automated multi-channel follow-up sequences</li>
+        <li>Smart timing — not spammy, not forgettable</li>
+        <li>Stops automatically when client responds or books</li>
+        <li>Hands off to your team for complex situations</li>
+        <li>Re-engagement for cold leads from past months</li>
+        <li>Available on the Inbound + Outbound plan</li>
+      </ul>
+    </div>
+    <div class="feature-stat">
+      <div class="big-num">80%</div>
+      <p>of sales require 5+ follow-up contacts — most practices stop after one</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="feature-block">
+    <div>
+      <div class="feature-tag">Analytics</div>
+      <h2>Know what's working and what's not.</h2>
+      <p>Aligned Voice tracks every call, text, and booking — so you can see where clients come from, which inquiries converted, and where opportunities slipped away. No digging through call logs or spreadsheets.</p>
+      <ul class="feature-list">
+        <li>Lead source attribution by channel</li>
+        <li>Inquiry-to-booking conversion rates</li>
+        <li>Call volume and peak hour reporting</li>
+        <li>Follow-up sequence performance</li>
+        <li>Revenue attribution per client acquisition channel</li>
+        <li>Monthly summary delivered to your inbox</li>
+      </ul>
+    </div>
+    <div class="feature-stat">
+      <div class="big-num">3×</div>
+      <p>more inquiries converted vs. traditional answering service or voicemail</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to see it in action?</h2>
+  <p>Book a demo and we'll show you a live call from inquiry to booked appointment in about 30 minutes.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-cta-primary">Book a Demo</a>
+    <a href="pricing.html" class="btn-cta-secondary">See Pricing</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><img src="Aligned_Voice_Logo__White.png" alt="Aligned Voice"><p>AI voice and automation for wellness practices that care about every client touchpoint. A product of Aligned XD.</p></div>
+    <div class="footer-col"><h5>Product</h5><ul><li><a href="features.html">Features</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="index.html#security">Security &amp; HIPAA</a></li></ul></div>
+    <div class="footer-col"><h5>Get Started</h5><ul><li><a href="contact.html">Book a Demo</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="#">Sign In</a></li></ul></div>
+    <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Terms of Service</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">BAA Agreement</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aligned XD. All rights reserved.</p>
+    <p>A product by <a href="https://alissacondra.com">alissacondra.com</a></p>
+  </div>
+</footer>
+</body>
+</html>

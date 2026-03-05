@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Aligned Voice</title>
+<meta name="description" content="Simple, transparent pricing for wellness practices. Start with inbound AI voice for $397/month. Add outbound automation and booking integration when you're ready.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --stone:#f5f2ee; --forest:#1d332c; --brown:#735240; --yellow:#d8d355; --red:#730805; --charcoal:#3c4240; --body:#5c5c52; --stone-mid:#e4dfd6; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',system-ui,sans-serif; color:var(--forest); background:white; line-height:1.6; }
+
+  nav { position:sticky; top:0; z-index:100; background:white; border-bottom:1px solid var(--stone-mid); padding:0 48px; height:72px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo img { height:38px; }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a { font-size:14px; color:var(--body); text-decoration:none; }
+  .nav-links a:hover, .nav-links a.active { color:var(--forest); font-weight:500; }
+  .nav-cta { display:flex; align-items:center; gap:12px; }
+  .btn-ghost { font-size:14px; color:var(--body); text-decoration:none; padding:8px 16px; }
+  .btn-nav { font-size:14px; font-weight:600; background:var(--red); color:white; text-decoration:none; padding:10px 22px; border-radius:8px; }
+
+  .page-hero { background:var(--stone); padding:72px 48px 64px; text-align:center; border-bottom:1px solid var(--stone-mid); }
+  .page-hero .label { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--brown); font-weight:600; margin-bottom:16px; }
+  .page-hero h1 { font-family:'Bitter',Georgia,serif; font-size:48px; font-weight:400; color:var(--forest); margin-bottom:16px; letter-spacing:-.02em; line-height:1.15; }
+  .page-hero p { font-size:18px; color:var(--body); max-width:540px; margin:0 auto; line-height:1.7; }
+
+  .pricing-section { padding:80px 48px; background:white; }
+  .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1060px; margin:0 auto 64px; }
+
+  .pricing-card { border-radius:20px; padding:40px 36px; border:1.5px solid var(--stone-mid); position:relative; }
+  .pricing-card.featured { border-color:var(--forest); background:var(--forest); }
+  .pricing-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--yellow); color:var(--forest); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 16px; border-radius:100px; white-space:nowrap; }
+
+  .pricing-card .plan-name { font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--brown); margin-bottom:12px; }
+  .pricing-card.featured .plan-name { color:var(--yellow); }
+  .pricing-card .price { font-family:'Bitter',Georgia,serif; font-size:52px; font-weight:400; color:var(--forest); line-height:1; margin-bottom:4px; }
+  .pricing-card.featured .price { color:white; }
+  .pricing-card .price-period { font-size:14px; color:var(--body); margin-bottom:6px; }
+  .pricing-card.featured .price-period { color:rgba(255,255,255,.5); }
+  .pricing-card .price-note { font-size:13px; color:var(--brown); margin-bottom:28px; }
+  .pricing-card.featured .price-note { color:rgba(255,255,255,.45); }
+
+  .pricing-divider { height:1px; background:var(--stone-mid); margin-bottom:28px; }
+  .pricing-card.featured .pricing-divider { background:rgba(255,255,255,.12); }
+
+  .pricing-card .plan-desc { font-size:14px; color:var(--body); line-height:1.7; margin-bottom:28px; }
+  .pricing-card.featured .plan-desc { color:rgba(255,255,255,.6); }
+
+  .pricing-list { list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:36px; }
+  .pricing-list li { font-size:14px; color:var(--body); display:flex; align-items:flex-start; gap:10px; line-height:1.5; }
+  .pricing-card.featured .pricing-list li { color:rgba(255,255,255,.75); }
+  .pricing-list li::before { content:'✓'; color:var(--forest); font-weight:700; flex-shrink:0; margin-top:1px; }
+  .pricing-card.featured .pricing-list li::before { color:var(--yellow); }
+
+  .btn-plan { display:block; text-align:center; font-size:15px; font-weight:600; text-decoration:none; padding:14px 24px; border-radius:10px; }
+  .btn-plan-outline { border:1.5px solid var(--forest); color:var(--forest); background:transparent; }
+  .btn-plan-primary { background:var(--red); color:white; border:none; }
+  .btn-plan-white { background:white; color:var(--forest); }
+
+  .setup-section { background:var(--stone); padding:80px 48px; }
+  .setup-section h2 { font-family:'Bitter',Georgia,serif; font-size:36px; font-weight:400; color:var(--forest); text-align:center; margin-bottom:12px; }
+  .setup-section > p { font-size:16px; color:var(--body); text-align:center; max-width:520px; margin:0 auto 56px; line-height:1.7; }
+  .setup-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:900px; margin:0 auto; }
+  .setup-card { background:white; border-radius:14px; padding:28px; border:1px solid var(--stone-mid); }
+  .setup-card h4 { font-family:'Bitter',Georgia,serif; font-size:18px; font-weight:400; color:var(--forest); margin-bottom:6px; }
+  .setup-card .setup-price { font-size:22px; font-weight:600; color:var(--red); margin-bottom:10px; }
+  .setup-card p { font-size:13px; color:var(--body); line-height:1.65; }
+
+  .faq-section { padding:80px 48px; background:white; }
+  .faq-section h2 { font-family:'Bitter',Georgia,serif; font-size:36px; font-weight:400; color:var(--forest); text-align:center; margin-bottom:48px; }
+  .faq-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; max-width:900px; margin:0 auto; }
+  .faq-item h4 { font-family:'Bitter',Georgia,serif; font-size:17px; font-weight:400; color:var(--forest); margin-bottom:10px; }
+  .faq-item p { font-size:14px; color:var(--body); line-height:1.7; }
+
+  .cta-section { background:var(--forest); padding:80px 48px; text-align:center; }
+  .cta-section h2 { font-family:'Bitter',Georgia,serif; font-size:40px; font-weight:400; color:white; margin-bottom:16px; }
+  .cta-section p { font-size:17px; color:rgba(255,255,255,.55); max-width:460px; margin:0 auto 36px; line-height:1.7; }
+  .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .btn-cta-primary { font-size:15px; font-weight:600; background:var(--red); color:white; text-decoration:none; padding:14px 32px; border-radius:10px; }
+  .btn-cta-secondary { font-size:15px; color:rgba(255,255,255,.75); text-decoration:none; padding:14px 32px; border-radius:10px; border:1.5px solid rgba(255,255,255,.22); }
+
+  footer { background:var(--charcoal); padding:56px 48px 36px; }
+  .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:40px; }
+  .footer-brand p { font-size:14px; color:rgba(255,255,255,.4); line-height:1.7; margin-top:16px; max-width:280px; }
+  .footer-brand img { height:30px; }
+  .footer-col h5 { font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:20px; }
+  .footer-col ul { list-style:none; }
+  .footer-col li { margin-bottom:12px; }
+  .footer-col a { font-size:14px; color:rgba(255,255,255,.5); text-decoration:none; }
+  .footer-col a:hover { color:white; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; }
+  .footer-bottom p { font-size:13px; color:rgba(255,255,255,.25); }
+  .footer-bottom a { color:rgba(255,255,255,.3); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="Aligned_Voice_Logo.png" alt="Aligned Voice"></a>
+  <ul class="nav-links">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#" class="btn-ghost">Sign in</a>
+    <a href="contact.html" class="btn-nav">Book a Demo</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Pricing</div>
+  <h1>Straightforward pricing.<br>No surprises.</h1>
+  <p>Start with what you need. Add on as your practice grows. Every plan includes a free basic setup so you can see it working before you commit to more.</p>
+</div>
+
+<section class="pricing-section">
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div class="plan-name">Inbound</div>
+      <div class="price">$397</div>
+      <div class="price-period">per month</div>
+      <div class="price-note">Free basic setup included</div>
+      <div class="pricing-divider"></div>
+      <p class="plan-desc">The core Aligned Voice experience. Every inbound call answered, every inquiry handled, every appointment booked — automatically.</p>
+      <ul class="pricing-list">
+        <li>24/7 inbound call handling</li>
+        <li>Warm, natural AI conversation</li>
+        <li>Appointment booking and confirmations</li>
+        <li>Missed-call-to-text response</li>
+        <li>Basic FAQ and practice info</li>
+        <li>Call recordings and transcripts</li>
+        <li>HIPAA compliance + BAA included</li>
+        <li>Monthly performance summary</li>
+      </ul>
+      <a href="contact.html" class="btn-plan btn-plan-outline">Get Started</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="plan-name">Inbound + Outbound</div>
+      <div class="price" style="color:white;">$597</div>
+      <div class="price-period">per month</div>
+      <div class="price-note">Free basic setup + booking integration</div>
+      <div class="pricing-divider"></div>
+      <p class="plan-desc">Everything in Inbound, plus automated outreach for leads that didn't convert the first time. This is where the real revenue recovery happens.</p>
+      <ul class="pricing-list">
+        <li>Everything in Inbound</li>
+        <li>Outbound follow-up sequences</li>
+        <li>Multi-channel outreach (voice, SMS, email)</li>
+        <li>Booking system integration</li>
+        <li>Lead re-engagement automation</li>
+        <li>Intake form collection</li>
+        <li>Cancellation and rescheduling flows</li>
+        <li>Practice analytics dashboard</li>
+      </ul>
+      <a href="contact.html" class="btn-plan btn-plan-primary">Book a Demo</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="plan-name">Custom</div>
+      <div class="price">Let's talk</div>
+      <div class="price-period">&nbsp;</div>
+      <div class="price-note">Multi-location or complex workflows</div>
+      <div class="pricing-divider"></div>
+      <p class="plan-desc">Multiple locations, custom integrations, or a workflow that doesn't fit a standard plan? We'll build exactly what your practice needs.</p>
+      <ul class="pricing-list">
+        <li>Everything in Inbound + Outbound</li>
+        <li>Multi-location support</li>
+        <li>Custom call flows and personas</li>
+        <li>Custom integrations</li>
+        <li>Dedicated onboarding and support</li>
+        <li>White-glove setup included</li>
+        <li>Quarterly strategy reviews</li>
+        <li>Priority response SLA</li>
+      </ul>
+      <a href="contact.html" class="btn-plan btn-plan-outline">Contact Us</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="setup-section">
+  <h2>Setup fees</h2>
+  <p>Basic setup is always free — your practice name, location, hours, and FAQ. Add-ons are one-time fees for deeper configuration.</p>
+  <div class="setup-grid">
+    <div class="setup-card">
+      <h4>Basic Setup</h4>
+      <div class="setup-price">Free</div>
+      <p>Practice name, address, hours, and basic FAQ. You can see it working before you decide to go further.</p>
+    </div>
+    <div class="setup-card">
+      <h4>Booking Integration</h4>
+      <div class="setup-price">$300–500</div>
+      <p>Connect Aligned Voice directly to your practice management system for live availability and automatic booking.</p>
+    </div>
+    <div class="setup-card">
+      <h4>SMS &amp; Outbound Setup</h4>
+      <div class="setup-price">$200–300</div>
+      <p>Configure automated text follow-up sequences and outbound outreach flows customized to your practice voice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2>Common questions</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <h4>Do I need to replace my phone system?</h4>
+      <p>No. Aligned Voice works alongside your existing setup. Most practices simply forward calls to the Aligned Voice number — no new hardware, no IT headaches.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How long does setup take?</h4>
+      <p>Basic setup typically takes a few days. Booking integration depends on your practice management system — PracticeQ, Jane App, and SimplePractice are the fastest to connect.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What if clients realize they're talking to AI?</h4>
+      <p>Aligned Voice is transparent when asked. Most clients don't ask — they just appreciate that someone answered. The experience is designed to feel warm and helpful, not robotic.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is there a contract?</h4>
+      <p>Monthly plans, no long-term commitment required. If it's not working for your practice after the first month, you can cancel. That said, most practices see results within the first two weeks.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can I customize how it sounds?</h4>
+      <p>Yes. Aligned Voice is configured to your practice — your name, your tone, your specific services. It should feel like a natural extension of your team, not a generic answering service.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What practice management systems do you support?</h4>
+      <p>PracticeQ, Jane App, SimplePractice, TherapyNotes, DrChrono, and more. If you don't see yours listed, ask — integrations are added regularly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>See it before you decide.</h2>
+  <p>Book a 30-minute demo and watch Aligned Voice handle a real call from start to booked appointment.</p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-cta-primary">Schedule a Demo</a>
+    <a href="how-it-works.html" class="btn-cta-secondary">How It Works</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><img src="Aligned_Voice_Logo__White.png" alt="Aligned Voice"><p>AI voice and automation for wellness practices that care about every client touchpoint. A product of Aligned XD.</p></div>
+    <div class="footer-col"><h5>Product</h5><ul><li><a href="features.html">Features</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="index.html#security">Security &amp; HIPAA</a></li></ul></div>
+    <div class="footer-col"><h5>Get Started</h5><ul><li><a href="contact.html">Book a Demo</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="#">Sign In</a></li></ul></div>
+    <div class="footer-col"><h5>Legal</h5><ul><li><a href="#">Terms of Service</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">BAA Agreement</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Aligned XD. All rights reserved.</p>
+    <p>A product by <a href="https://alissacondra.com">alissacondra.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
